@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { Action, ActionPanel, LocalStorage, List } from "@raycast/api";
-import { usePromise } from "@raycast/utils";
 import { pasteSelectedEmail } from "./random";
 
 export default function Command() {
-  const data = [] as [{ email: string; datetime: string; id: number }];
+  const data: { email: string; datetime: string; id: number }[] = [];
 
   const [isLoading, setIsLoading] = useState(true);
   const [showingDetail, setShowingDetail] = useState(false);
@@ -17,7 +16,7 @@ export default function Command() {
         storage.forEach((item) => {
           if (item[0].startsWith("email-")) {
             const index = item[0].split("-")[1];
-            const datetime = new Date(storage.find((item) => item[0] === `datetime-${index}`)[1]);
+            const datetime = new Date((storage.find((item) => item[0] === `datetime-${index}`) ?? [,])[1]);
             data.push({
               id: parseInt(index),
               email: item[1],
