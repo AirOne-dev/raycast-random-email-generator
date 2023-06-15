@@ -3,7 +3,7 @@
   "name": "email",
   "title": "Email",
   "description": "Generate a random email address",
-  "icon": "command-icon.png",
+  "icon": "mail-icon.png",
   "author": "AirOne",
   "owner": "daryl-social-software",
   "categories": [
