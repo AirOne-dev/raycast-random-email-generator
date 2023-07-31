@@ -8,7 +8,11 @@ export default async function Command() {
   const lastname = faker.person.lastName().toLowerCase();
   const adjective = faker.word.adjective().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-  const email = (() => {
+  const removeAccents = (str: string): string => {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  };
+
+  const email = removeAccents((() => {
     switch (Math.floor(Math.random() * 4)) {
       case 0:
         return `${firstname}.${lastname}`;
@@ -19,7 +23,7 @@ export default async function Command() {
       default:
         return `${lastname}.${adjective}`;
     }
-  })() + `@${preferences.email_domain}`;
+  })()) + `@${preferences.email_domain}`;
 
   const datetime = new Date().toISOString();
 
