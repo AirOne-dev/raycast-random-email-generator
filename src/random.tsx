@@ -1,11 +1,14 @@
-import { Clipboard, getPreferenceValues, LocalStorage, showHUD } from "@raycast/api";
+import { Clipboard, getPreferenceValues, LocalStorage,LaunchProps, showHUD } from "@raycast/api";
 import { fakerFR as faker } from '@faker-js/faker';
-
-export default async function Command() {
+interface RandomArgument {
+  type?: string;
+}
+export default async function Command(props: LaunchProps<{ arguments: RandomArgument }>) {
   const preferences = getPreferenceValues();
-
-  const firstname = faker.person.firstName().toLowerCase();
-  const lastname = faker.person.lastName().toLowerCase();
+  const isFemale = props.arguments.type === 'f';
+  
+  const firstname = faker.person.firstName(isFemale ? 'female': 'male').toLowerCase();
+  const lastname = faker.person.lastName(isFemale ? 'female': 'male').toLowerCase();
   const adjective = faker.word.adjective().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
   const removeAccents = (str: string): string => {
@@ -30,7 +33,7 @@ export default async function Command() {
   const nbItems = Object.keys(await LocalStorage.allItems()).length;
   await LocalStorage.setItem(`email-${nbItems}`, email);
   await LocalStorage.setItem(`datetime-${nbItems}`, datetime);
-  
+
   pasteSelectedEmail(email);
 }
 

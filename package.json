@@ -25,6 +25,13 @@
           "default": "gmail.com",
           "required": true
         }
+      ],
+      "arguments": [
+        {
+          "name": "type",
+          "type": "text",
+          "placeholder": "f"
+        }
       ]
     },
     {

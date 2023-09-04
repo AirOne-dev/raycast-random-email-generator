@@ -24,7 +24,9 @@ declare namespace Preferences {
 
 declare namespace Arguments {
   /** Arguments passed to the `random` command */
-  export type Random = {}
+  export type Random = {
+    type?: string
+  }
   /** Arguments passed to the `history` command */
   export type History = {}
 }
