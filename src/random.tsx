@@ -1,14 +1,14 @@
-import { Clipboard, getPreferenceValues, LocalStorage,LaunchProps, showHUD } from "@raycast/api";
+import { Clipboard, getPreferenceValues, LocalStorage, LaunchProps, showHUD } from "@raycast/api";
 import { fakerFR as faker } from '@faker-js/faker';
 interface RandomArgument {
   type?: string;
 }
 export default async function Command(props: LaunchProps<{ arguments: RandomArgument }>) {
   const preferences = getPreferenceValues();
-  const isFemale = props.arguments.type === 'f';
-  
-  const firstname = faker.person.firstName(isFemale ? 'female': 'male').toLowerCase();
-  const lastname = faker.person.lastName(isFemale ? 'female': 'male').toLowerCase();
+  const currentGender = props.arguments?.type === 'f' ? 'female' : 'male';
+
+  const firstname = faker.person.firstName(currentGender).toLowerCase();
+  const lastname = faker.person.lastName(currentGender).toLowerCase();
   const adjective = faker.word.adjective().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
   const removeAccents = (str: string): string => {
