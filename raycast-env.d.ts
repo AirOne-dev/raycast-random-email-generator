@@ -25,8 +25,19 @@ declare namespace Preferences {
 declare namespace Arguments {
   /** Arguments passed to the `random` command */
   export type Random = {
-    type?: string
-  }
+  /** f */
+  "type": string
+}
   /** Arguments passed to the `history` command */
   export type History = {}
+}
+
+
+declare module "swift:*" {
+  function run<T = unknown, U = any>(command: string, input?: U): Promise<T>;
+  export default run;
+	export class SwiftError extends Error {
+    stderr: string;
+    stdout: string;
+  }
 }
