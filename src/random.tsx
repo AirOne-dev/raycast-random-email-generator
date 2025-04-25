@@ -47,11 +47,7 @@ export default async function Command(props: LaunchProps<{ arguments: RandomArgu
 export async function pasteSelectedEmail(email: string) {
   await closeMainWindow({ clearRootSearch: true });
 
-  try {
-    // we use AppleScript to type the email because it allow to type in non copy/pasteable fields
-    await runAppleScript(`tell application "System Events" to keystroke "${email}"`);
-    await showHUD(`${email} pasted`);
-  } catch (error: Error) {
-    await showHUD(`Failed to paste email: ${error.message}`);
-  }
+  // we use AppleScript to type the email because it allow to type in non copy/pasteable fields
+  await runAppleScript(`tell application "System Events" to keystroke "${email}"`);
+  await showHUD(`${email} pasted`);
 }
