@@ -42,18 +42,18 @@
     }
   ],
   "dependencies": {
-    "@faker-js/faker": "^8.0.2",
+    "@faker-js/faker": "^9.7.0",
     "@raycast/api": "^1.48.9",
     "@raycast/utils": "^1.5.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.6.0",
-    "@raycast/eslint-config": "1.0.8",
-    "@types/node": "20.14.10",
-    "@types/react": "18.3.3",
-    "@typescript-eslint/eslint-plugin": "^7.16.0",
-    "@typescript-eslint/parser": "^7.16.0",
+    "@raycast/eslint-config": "2.0.4",
+    "@types/node": "22.15.2",
+    "@types/react": "19.1.2",
+    "@typescript-eslint/eslint-plugin": "^8.31.0",
+    "@typescript-eslint/parser": "^8.31.0",
     "eslint": "^9.6.0",
     "prettier": "^3.3.2",
     "typescript": "^5.5.3"

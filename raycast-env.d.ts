@@ -32,4 +32,3 @@ declare namespace Arguments {
   export type History = {}
 }
 
-
