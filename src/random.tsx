@@ -16,9 +16,9 @@ export default async function Command(props: LaunchProps<{ arguments: RandomArgu
   const removeSpecialCharacters = (str: string): string => {
     return str
       .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(' ', '');
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(" ", "");
   };
 
   const email =
@@ -51,7 +51,7 @@ export async function pasteSelectedEmail(email: string) {
     // we use AppleScript to type the email because it allow to type in non copy/pasteable fields
     await runAppleScript(`tell application "System Events" to keystroke "${email}"`);
     await showHUD(`${email} pasted`);
-  } catch (error: any) {
+  } catch (error: Error) {
     await showHUD(`Failed to paste email: ${error.message}`);
   }
 }

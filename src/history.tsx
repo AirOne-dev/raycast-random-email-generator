@@ -12,7 +12,7 @@ interface EmailItem {
 
 export default function Command() {
   const [items, setItems] = useState<EmailItem[]>([]);
-  const [sort, setSort] = useState<string>('date-desc');
+  const [sort, setSort] = useState<string>("date-desc");
   const [isLoading, setIsLoading] = useState(true);
   const [searchText, setSearchText] = useState("");
   const [filteredList, setFilteredList] = useState<EmailItem[]>([]);
@@ -154,7 +154,7 @@ export default function Command() {
             key={item.id}
             title={item.email}
             subtitle={item.datetime}
-            accessories={[ { text: `ID: ${item.id}` } ]}
+            accessories={[{ text: `ID: ${item.id}` }]}
             icon={Icon.Envelope}
             actions={
               <ActionPanel>

@@ -63,6 +63,7 @@
     "dev": "ray develop",
     "fix-lint": "ray lint --fix",
     "lint": "ray lint",
+    "login": "ray login",
     "publish": "npx @raycast/api@latest publish"
   }
 }
